@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Diagram</string>
-    <string name="what_is_diagram">Diagram is a tool to backup your Telegram data
-    </string>
+    <string name="what_is_diagram">Diagram is a tool to backup your Telegram data</string>
     <string name="phone_hint">Phone Number like +989123456789</string>
     <string name="next_step">Next</string>
+    <string name="verification_code_hint">Enter the code</string>
+    <string name="go">Go</string>
+    <string name="wrong_number">Wrong number? click here</string>
 </resources>

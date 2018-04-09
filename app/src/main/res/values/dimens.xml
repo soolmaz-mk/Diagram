@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="frame_large_padding">16dp</dimen>
+    <dimen name="space">16dp</dimen>
+    <dimen name="space_big">24</dimen>
 </resources>

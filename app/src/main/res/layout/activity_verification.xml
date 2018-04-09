@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             tools:context=".IntroActivity"
+                                             android:padding="@dimen/frame_large_padding">
+
+    <TextView android:id="@+id/error"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:textColor="@color/colorError"
+              android:layout_marginBottom="@dimen/space"
+              app:layout_constraintBottom_toTopOf="@+id/code"
+              app:layout_constraintLeft_toLeftOf="parent"
+              app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="@string/verification_code_hint"
+              android:id="@+id/code"
+              android:inputType="number"
+              android:maxLength="6"/>
+    <Button
+            android:text="@string/go"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/go"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/space"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <TextView android:id="@+id/wrong_number"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              app:layout_constraintStart_toEndOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/go"
+              android:text="@string/wrong_number"
+              android:layout_marginTop="@dimen/space_big" />
+
+
+    <TextView android:id="@+id/resend"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              app:layout_constraintStart_toEndOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/go"
+              android:layout_marginTop="@dimen/space" />
+
+</android.support.constraint.ConstraintLayout>
