@@ -4,9 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import org.telegram.tgnet.ConnectionsManager;
+import org.telegram.tgnet.RequestDelegate;
+import org.telegram.tgnet.TLObject;
+import org.telegram.tgnet.TLRPC;
 
 public class IntroActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -57,9 +63,36 @@ public class IntroActivity extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
     }
 
+    TLRPC.TL_auth_checkPhone req = new TLRPC.TL_auth_checkPhone();
+
     private void onPhoneEntered(String s) {
+        if(s.equals("") &&  s.length()==13){
+
+            ConnectionsManager.getInstance().sendRequest(req, new RequestDelegate() {
+                @Override
+                public void run(TLObject response, TLRPC.TL_error error){
+                    // System.out.println("simplyyyyyy");
+                    Log.d("myTag", "simplyyyyy");
+
+                    if(error!=null){
+                        showError("input number doesn't exists on Telegram");
+                    }
+
+                    else{
+                        //call sendCode
+                    }
+                }
+            },ConnectionsManager.RequestFlagWithoutLogin);
+        }
+        showError("invalid input");
     }
 
+/*void showError(String error) {
+        errorText.setText(error);
+        errorText.animate().alpha(1).start();
+    }
+
+    */
 
     //boolean checkNumber telegram
     //sendCode telegram
