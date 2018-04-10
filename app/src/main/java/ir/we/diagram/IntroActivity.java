@@ -1,6 +1,7 @@
 package ir.we.diagram;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -21,9 +22,25 @@ public class IntroActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_intro);
         phoneInput = findViewById(R.id.phone);
         findViewById(R.id.next).setOnClickListener(this);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        phoneInput.setText(savedInstanceState.getString("phone"));
+        if (savedInstanceState.containsKey("error"))
+            errorText.setText(savedInstanceState.getString("error"));
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        outState.putString("phone", phoneInput.getText().toString());
+        if (errorText.getAlpha() == 1)
+            outState.putString("error", errorText.getText().toString());
     }
 
     @Override
