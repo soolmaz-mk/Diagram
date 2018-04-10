@@ -1,5 +1,6 @@
 package ir.we.diagram;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
@@ -52,11 +53,8 @@ public class IntroActivity extends AppCompatActivity implements View.OnClickList
     }
 
     void goToEnterCodePage() {
-        // TODO
-        /*
-        Intent intent = new Intent(String.format("diag://entercode?hash=%s", hash))
-        startActivity(intent)
-         */
+        Intent intent = new Intent(getApplicationContext(), VerificationActivity.class);
+        startActivity(intent);
     }
 
     private void onPhoneEntered(String s) {
