@@ -3,7 +3,7 @@ package ir.we.diagram;
 import android.app.Application;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
-
+import android.os.Handler;
 import org.telegram.messenger.NativeLoader;
 import org.telegram.tgnet.ConnectionsManager;
 
@@ -18,6 +18,7 @@ public class DiagramApplication extends Application {
     }
 
 
+    private volatile Handler applicationHandler;
 
     public static File getFilesDirFixed() {
         for (int a = 0; a < 10; a++) {
@@ -43,6 +44,11 @@ public class DiagramApplication extends Application {
         sInstance = this;
         NativeLoader.initNativeLibs(this);
         ConnectionsManager.native_setJava(Build.VERSION.SDK_INT == 14 || Build.VERSION.SDK_INT == 15);
+
+        applicationHandler = new Handler(getApplicationContext().getMainLooper());
     }
 
+    public Handler getApplicationHandler() {
+        return applicationHandler;
+    }
 }

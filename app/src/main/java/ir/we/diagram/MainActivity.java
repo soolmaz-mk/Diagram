@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_intro);
 
         TLRPC.TL_auth_checkPhone req = new TLRPC.TL_auth_checkPhone();
         req.phone_number = "+989172213026";
@@ -39,19 +39,19 @@ public class MainActivity extends AppCompatActivity {
         //give telegram response (check if the code is correct or wrong)
         //show the error wrong code if it is wrong
         //add to account telegram
-
-        void submitPhoneNumber (String phoneNumber) {
-            if(phoneNumber!=null){
-                //shomare ro midi telegram javab mide
-
-                if(javab==1){
-                    next page
-                }
-                else
-                    //print number doesn't exist
-            }
-            //print wrong format/number
-
-        }
+//
+//        void submitPhoneNumber (String phoneNumber) {
+//            if(phoneNumber!=null){
+//                //shomare ro midi telegram javab mide
+//
+//                if(javab==1){
+//                    next page
+//                }
+//                else
+//                    //print number doesn't exist
+//            }
+//            //print wrong format/number
+//
+//        }
 
 
